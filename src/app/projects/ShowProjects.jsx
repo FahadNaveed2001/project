@@ -1,7 +1,7 @@
 "use client";
 
 import UserContext from "@/context/userContext";
-import { deleteProject, getTasksOfUser } from "@/services/taskservices";
+import { deleteProject, getTasksOfUser } from "../../services/taskServices";
 import React, { useContext, useEffect, useState } from "react";
 import Project from "./Project";
 import { toast } from "react-toastify";

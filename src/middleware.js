@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export function middleware(request) {
-  console.log("middleware chl ra hy");
+  console.log("Middleware is Running at 420km/h");
 
   const authToken = request.cookies.get("MKauthtoken")?.value;
 

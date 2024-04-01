@@ -1,15 +1,14 @@
 "use client";
 
 import { Register } from "@/services/userservices";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signupcomponent = () => {
-
-  const router = useRouter()
+  const router = useRouter();
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -23,29 +22,29 @@ const Signupcomponent = () => {
     event.preventDefault();
 
     if (!data.name.trim()) {
-      toast.warning("Please provide a valid Name !")
+      toast.warning("Please provide a valid Name !");
       return;
     }
 
     if (!data.email.trim()) {
-      toast.warning("Please provide a valid Email !")
+      toast.warning("Please provide a valid Email !");
       return;
     }
 
     if (!data.password.trim()) {
-      toast.warning("Please provide Password !")
+      toast.warning("Please provide Password !");
       return;
     }
 
     if (!data.about.trim()) {
-      toast.warning("Please provide Information !")
+      toast.warning("Please provide Information !");
       return;
     }
 
     try {
       const result = await Register(data);
       console.log(result);
-     toast.success("Registration Successfull !")
+      toast.success("Registration Successfull !");
       setData({
         name: "",
         email: "",
@@ -54,10 +53,10 @@ const Signupcomponent = () => {
         profileURL:
           "https://www.pngarts.com/files/10/Default-Profile-Picture-PNG-Transparent-Image.png",
       });
-      router.push("/login")
+      router.push("/login");
     } catch (error) {
       console.error(error);
-      toast.error("Error During Registration !")
+      toast.error("Error During Registration !");
     }
   };
 
@@ -75,8 +74,7 @@ const Signupcomponent = () => {
                 <form action="#!" onSubmit={doSignup}>
                   <div className="relative">
                     <input
-                                        autoComplete="off"
-
+                      autoComplete="off"
                       id="username"
                       name="username"
                       type="text"
@@ -96,8 +94,7 @@ const Signupcomponent = () => {
                   </div>
                   <div className="relative mt-6">
                     <input
-                                        autoComplete="off"
-
+                      autoComplete="off"
                       id="email"
                       name="email"
                       type="email"
@@ -117,8 +114,7 @@ const Signupcomponent = () => {
                   </div>
                   <div className="relative mt-6">
                     <input
-                                        autoComplete="off"
-
+                      autoComplete="off"
                       id="password"
                       name="password"
                       type="password"
@@ -139,8 +135,7 @@ const Signupcomponent = () => {
 
                   <div className="relative mt-6">
                     <textarea
-                                        autoComplete="off"
-
+                      autoComplete="off"
                       id="about"
                       name="about"
                       type="text"
@@ -165,10 +160,18 @@ const Signupcomponent = () => {
                       type="submit"
                       className="bg-cyan-500 text-white rounded-md px-2 py-1"
                     >
-                      Submit
+                      Register
                     </button>
                   </div>
                 </form>
+                <div>
+                  <Link
+                    href="/login"
+                    className="text-gray-200 text-sm hover:underline"
+                  >
+                    Already Have account?
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

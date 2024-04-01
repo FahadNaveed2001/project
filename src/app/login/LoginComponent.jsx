@@ -2,6 +2,7 @@
 
 import UserContext from "@/context/userContext";
 import { login } from "@/services/userservices";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useContext, useState } from "react";
 import { toast } from "react-toastify";
@@ -95,11 +96,14 @@ export default function LoginComponent() {
                       type="submit"
                       className="bg-cyan-500 text-white rounded-md px-2 py-1"
                     >
-                      Submit
+                 Login
                     </button>
                   </div>
                 </form>
+                <div><Link href="/signup" className="text-gray-200 text-sm hover:underline">Create Free Account?</Link></div>
+
               </div>
+
             </div>
           </div>
         </div>
